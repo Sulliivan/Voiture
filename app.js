@@ -49,13 +49,13 @@ db.connect((err) => {
 
 global.db = db; // donne accés a la connection de l'appli a la base de donnée
 
-const { getCars, getSingleCar, getEditCar }  = require ("./controllers/cars")
+const { getCars, getSingleCar, getEditCar, putEditCar, addEditCar }  = require ("./controllers/cars")
 
 app.get("/", getCars)
 app.get("/car/:id", getSingleCar)
-
 app.get("/car/edit/:id", getEditCar)
-
+app.put("/car/edit/:id", putEditCar)
+app.addListener("/car/edit/:id", addEditCar)
 
 ///////////////////////////////////////////
 // port utilisé par express en serveur local
