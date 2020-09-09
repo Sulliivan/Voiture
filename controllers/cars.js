@@ -48,7 +48,6 @@ module.exports = {
 
   putEditCar : (req, res) => {
     const id = req.params.id 
-  
     const name = req.body.name
     const factory = req.body.factory
     const energy = req.body.energy
@@ -70,7 +69,7 @@ module.exports = {
     const factory = req.body.factory
     const energy = req.body.energy
     
-    const query = "INSERT INTO cars ( name, factoryId, years, price, energyId, image) value (?, ?, ?, ?, ?,?);"
+    const query = "INSERT INTO cars ( name, factoryId, years, price, energyId, image) values (?, ?, ?, ?, ?,?);"
   
   db.query(query,[name,factory,energy], (err, result) => {
     if (err) {
